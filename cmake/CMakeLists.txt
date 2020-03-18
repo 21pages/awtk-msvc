@@ -390,19 +390,5 @@ set(CPPPATH
 )
 target_include_directories(${PROJ} PRIVATE ${CPPPATH})
 
-#编译demo
-add_subdirectory(awtk/demos)
 #编译tools
-add_subdirectory(awtk/tools)
-#编译tests
-add_subdirectory(awtk/tests)
-
-#编译example
-add_subdirectory(awtk-examples/HelloWorld.Xml-Demo)
-add_subdirectory(awtk-examples/HelloWorld.Max-Demo)
-add_subdirectory(awtk-examples/Chart-Demo)
-add_subdirectory(awtk-examples/CleanAir-Demo)
-add_subdirectory(awtk-examples/HelloDesigner-Demo)
-add_subdirectory(awtk-examples/MusicPlayer-Demo)
-add_subdirectory(awtk-examples/SmartWatch-Demo)
 add_subdirectory(awtk-terminal)

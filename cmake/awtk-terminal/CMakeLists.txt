@@ -1,5 +1,6 @@
 #设置demo目录
 set(APP_ROOT ${TK_ROOT}/../awtk-terminal)
+set(MASTER_ROOT ${TK_ROOT}/../../698Master)
 # 输出目录
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG ${APP_ROOT}/bin)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE ${APP_ROOT}/bin)
@@ -40,11 +41,14 @@ set_target_properties(${PRJ} PROPERTIES  LINK_FLAGS ${OS_SUBSYSTEM_WINDOWS})
 # 引用目录
 target_include_directories(${PRJ} PRIVATE ${CPPPATH} ${APP_CPPPATH})
 
-#动态库路径
-target_link_directories(${PRJ} PRIVATE ${APP_ROOT}/lib) #添加动态连接库的路径
+#库路径
+target_link_directories(${PRJ} PRIVATE ${TK_ROOT}/lib 
+									   ${APP_ROOT}/lib 
+									   ${MASTER_ROOT}/libs
+									   ${MASTER_ROOT}/protocol/Debug
+									   ${MASTER_ROOT}/apps/DF62XX/Debug
+									   )
 
-#动态库添加
-#target_link_libraries(${PRJ})
 
 # 引用库
-target_link_libraries(${PRJ} PRIVATE awtk -lmosquitto)
+target_link_libraries(${PRJ} PRIVATE awtk mosquitto VCLib Flats protocol DF62XX nafxcwd)
